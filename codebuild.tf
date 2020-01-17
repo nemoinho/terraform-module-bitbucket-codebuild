@@ -1,9 +1,9 @@
 resource "aws_cloudwatch_log_group" "build_log_group" {
-  name = "/aws/codebuild/${var.repository_slug}"
+  name = "/aws/codebuild/${local.codebuild_name}"
 }
 
 resource "aws_codebuild_project" "build" {
-  name          = var.repository_slug
+  name          = local.codebuild_name
   description   = "This project builds ${var.repository_name}${local.name_suffix}"
   build_timeout = var.timeout
   service_role  = aws_iam_role.build_role.arn

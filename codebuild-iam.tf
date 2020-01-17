@@ -1,6 +1,6 @@
 resource "aws_iam_role" "build_role" {
   #max role-name length is 64 chars => https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html#reference_iam-limits-entity-length
-  name = "${substr(var.repository_slug, 0, 53)}-build-role"
+  name = "${substr(local.codebuild_name, 0, 53)}-build-role"
 
   assume_role_policy = data.aws_iam_policy_document.build_role_assume.json
 }
