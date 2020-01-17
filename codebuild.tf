@@ -22,7 +22,7 @@ resource "aws_codebuild_project" "build" {
     type            = "BITBUCKET"
     location        = var.repository_url
     git_clone_depth = 1
-    buildspec       = "buildspec.yml"
+    buildspec       = var.buildspec
   }
 }
 

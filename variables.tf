@@ -17,3 +17,8 @@ variable "env" {
   description = "The environment this codebuild-instance is considered for"
   default     = ""
 }
+
+variable "buildspec" {
+  description = "The name of the buildspec file"
+  default     = "buildspec.yml"
+}
